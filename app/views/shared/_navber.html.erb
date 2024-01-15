@@ -1,0 +1,21 @@
+<nav class="bg-blue-700 p-4 relative">
+  <div class="container mx-auto flex items-center justify-between">
+    <div>
+      <% if logout %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"text-white" %>
+      <% else %>
+        <%= link_to back_path do %>
+          <%= image_tag("https://www.pinclipart.com/picdir/big/544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png", alt: "Back", class:"max-h-10 invert") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="text-white text-lg"> 
+      <h2><%= title %></h2>
+    </div>
+
+    <div>
+      <img src="https://www.pngall.com/wp-content/uploads/13/Search-Button-White-PNG.png" alt="search"  width="50" height="80">
+    </div>
+  </div>
+</nav>
