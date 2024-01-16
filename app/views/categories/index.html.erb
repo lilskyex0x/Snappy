@@ -1,1 +1,26 @@
-<%= render partial: "shared/navbar", locals: { title: "Categories", logout: true, back_path: groups_path } %>
+<%= render partial: "shared/navbar", locals: { title: "Categories", logout: true, back_path: categories_path } %>
+
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= link_to category_transactions_path(category) do %>
+      <div class="categories-grid">
+        <div class="categories-col-span-1">
+          <img src=<%=category.icon%> class="categories-image">
+        </div>
+        <div class="categories-col-span-2">
+          <p><%= category.name %></p>
+          <p><%= category.created_at.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="categories-bold">
+          <p><%= category.total_transaction_amount %>$</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to new_category_path, class:"fixed-bottom" do%>
+  <div class="padded-border">
+    New Category
+  </div>
+<% end %>
