@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = current_user.categories.includes(:transactions).order(created_at: :desc)
+    @categories = current_user.authored_categories.includes(:transactions, :author).order(created_at: :desc)
   end
 
   def new
@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.categories.build(category_params)
+    @category = current_user.authored_categories.build(category_params)
     if @category.save
       redirect_to categories_path, notice: 'Category was successfully created.'
     else
