@@ -1,48 +1,39 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_transaction, only: %i[show edit update destroy]
+  before_action :set_category, only: [:index, :new, :create]
 
   def index
-    @transactions = current_user.transactions.includes(:category).order(created_at: :desc)
+    @category = Category.find(params[:category_id])
+    @transactions = @category.transaction_records.order(created_at: :desc)
+    @total_amount = @transactions.sum(:amount)
   end
 
   def new
     @transaction = Transaction.new
+    @categories = Category.all
   end
 
-  def show; end
-
   def create
-    @transaction = current_user.transactions.build(transaction_params)
+    @transaction = Transaction.new(transaction_params.except(:category_id))
+    @transaction.author = current_user # or however you get the current user
+  
     if @transaction.save
-      redirect_to transactions_path, notice: 'Transaction was successfully created.'
+      CategoriesTransaction.create(transaction_ref_id: @transaction.id, category_id: params[:category_id])
+      redirect_to category_transactions_path(params[:category_id])
     else
+      puts @transaction.errors.full_messages
+      @categories = Category.all
       render :new
     end
   end
 
-  def edit; end
-
-  def update
-    if @transaction.update(transaction_params)
-      redirect_to transactions_path, notice: 'Transaction was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @transaction.destroy
-    redirect_to transactions_path, notice: 'Transaction was successfully destroyed.'
-  end
-
   private
 
-  def set_transaction
-    @transaction = Transaction.find(params[:id])
+  def set_category
+    @category = current_user.authored_categories.includes(:transaction_records).find(params[:category_id])
   end
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :category_id)
+    params.require(:transaction).permit(:name, :amount, :author_id, :category_id)
   end
 end
