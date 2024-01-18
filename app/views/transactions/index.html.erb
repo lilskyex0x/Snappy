@@ -1,1 +1,25 @@
-<%= render partial: "shared/navbar", locals: { title: "Transactions", logout: false, back_path: groups_path } %>
+<%= render partial: "shared/navbar", locals: { title: "Transactions", logout: false, back_path: categories_path } %>
+
+<div id="transactions">
+  <% @transactions.each do |transaction| %>
+    <div class="grid grid-cols-4 gap-1 m-2 border-2 border-grey bg-white p-2 items-center">
+      <div class="col-span-1">
+        <img src=<%=@category.icon%> class="w-full h-24 object-cover border-2 rounded border-black">
+      </div>
+      <div class="col-span-2 -mx-10 flex flex-col p-4">
+        <p><%= transaction.name %></p>
+        <p><%= transaction.created_at.strftime("%d/%m/%Y") %></p>
+      </div>
+      <div class="col-span-1 p-4 font-bold">
+        <p><%= transaction.amount %>$</p>
+        <p><%= @category.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to new_category_transaction_path(@category), class:"fixed inset-x-0 bottom-0 bg-[#5fb523] p-5 text-center text-white hover:bg-[#55a01f]" do%>
+  <div class="p-2 border border-white">
+    New Transaction
+  </div>
+<% end %>
