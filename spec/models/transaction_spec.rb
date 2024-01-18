@@ -30,7 +30,7 @@ RSpec.describe Transaction, type: :model do
   it 'validates numericality of amount' do
     transaction = Transaction.new(amount: 'abc')
     transaction.valid?
-    expect(transaction.errors[:amount]).to include("is not a number")
+    expect(transaction.errors[:amount]).to include('is not a number')
   end
 
   it 'validates presence of author_id' do

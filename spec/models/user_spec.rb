@@ -18,13 +18,13 @@ RSpec.describe User do
     user.valid?
     expect(user.errors[:name]).to include("can't be blank")
   end
-  
+
   it 'validates presence of email' do
     user = User.new(email: nil)
     user.valid?
     expect(user.errors[:email]).to include("can't be blank")
   end
-  
+
   it 'validates uniqueness of email' do
     User.create!(email: 'stickman@gmail.com', name: 'Test', password: 'password123')
     user = User.new(email: 'stickman@gmail.com', password: 'password123')

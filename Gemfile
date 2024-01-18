@@ -7,6 +7,10 @@ gem 'rails', '~> 7.1.2'
 
 gem 'devise'
 
+gem 'rails-controller-testing'
+
+gem 'factory_bot_rails'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rspec-rails', '~> 5.0'

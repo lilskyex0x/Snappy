@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_16_090837) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_17_114725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_090837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_categories_on_author_id"
   end
 
   create_table "categories_transactions", force: :cascade do |t|
@@ -32,12 +33,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_090837) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "name"
-    t.decimal "amount"
-    t.bigint "user_id", null: false
+    t.text "name"
+    t.decimal "amount", precision: 8, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_transactions_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_090837) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users", column: "author_id"
   add_foreign_key "categories_transactions", "categories"
   add_foreign_key "categories_transactions", "transactions", column: "transaction_ref_id"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "users", column: "author_id"
 end
