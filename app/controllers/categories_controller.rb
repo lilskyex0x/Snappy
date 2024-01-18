@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = current_user.authored_categories.includes(:transactions, :author).order(created_at: :desc)
+    @categories = Category.includes(:transaction_records).where(author_id: current_user.id)
   end
 
   def new
