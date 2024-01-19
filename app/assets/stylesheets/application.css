@@ -298,7 +298,7 @@ tr:hover {
 }
 
 .button {
-  background-color: #5fb523; /* Blue */
+  background-color: #5fb523;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -312,7 +312,7 @@ tr:hover {
 }
 
 .button:hover {
-  background-color: #55a01f; /* Darker blue */
+  background-color: #55a01f;
   color: white;
 }
 
@@ -377,55 +377,4 @@ tr:hover {
   font-weight: bold;
 }
 
-
-
 /* Transaction Page CSS Ends here____________________ */
-
-/* New Transactions CSS Start here__________________ */
-
-/* .text-field {
-  appearance: none;
-  border: 1px solid;
-  width: 100%;
-  padding: 2px 3px;
-  color: #4a4a4a;
-  line-height: 1.5;
-  outline: none;
-} */
-
-/* .text-field:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-} */
-
-/* .number-field {
-  appearance: none;
-  border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
-  padding: 2px 3px;
-  color: #4a4a4a;
-  line-height: 1.5;
-  outline: none;
-} */
-
-/* .number-field:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-} */
-
-/* .submit-button {
-  background-color: #5fb523;
-  padding: 5px;
-  text-align: center;
-  color: white;
-}
-
-.submit-button:hover {
-  background-color: #55a01f;
-}
-
-.submit-button-border {
-  padding: 2px;
-  border: 1px solid white;
-} */
-
-/* New Transactions CSS ends here__________________________ */
