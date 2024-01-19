@@ -1,26 +1,44 @@
-<%= render partial: "shared/navbar", locals: { title: "Categories", logout: true, back_path: categories_path } %>
+<%= render partial: "shared/navbar", locals: { title: "Categories", logout: true, back_path: categories_path, show_next: false } %>
 
+<section class="app-body">
 <div id="categories">
-  <% @categories.each do |category| %>
-    <%= link_to category_transactions_path(category) do %>
-      <div class="categories-grid">
-        <div class="categories-col-span-1">
-          <img src=<%=category.icon%> class="categories-image">
-        </div>
-        <div class="categories-col-span-2">
-          <p><%= category.name %></p>
-          <p><%= category.created_at.strftime("%d/%m/%Y") %></p>
-        </div>
-        <div class="categories-bold">
-          <p><%= category.total_transaction_amount %>$</p>
-        </div>
-      </div>
+  <table>
+    <thead>
+      <tr class="titleTr">
+        <th>Icon</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Total Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <%= link_to category_transactions_path(category) do %>
+            <div class="category-icon">
+              <img src=<%=category.icon%> class="category-image">
+            </div>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to category.name, category_transactions_path(category), class: "full-width-link" %>
+        </td>
+        <td>
+          <%= link_to category.created_at.strftime("%d/%m/%Y"), category_transactions_path(category), class: "full-width-link" %>
+        </td>
+        <td>
+          <%= link_to "#{category.total_transaction_amount}$", category_transactions_path(category), class: "full-width-link" %>
+        </td>
+      </tr>
     <% end %>
-  <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to new_category_path, class:"fixed-bottom" do%>
-  <div class="padded-border">
-    New Category
-  </div>
-<% end %>
+  <%= link_to new_category_path, class:"new-category-link" do%>
+    <div class="new-category">
+      New Category
+    </div>
+  <% end %>
+</section>
