@@ -1,0 +1,22 @@
+databases:
+  - name: snappy-db
+    databaseName: snappy_production
+    user: snappy
+    plan: free
+
+services:
+  - type: web
+    name: snappy-service
+    runtime: ruby
+    plan: free
+    buildCommand: "bundle install && yarn install && bundle exec rake assets:precompile"
+    startCommand: "bundle exec rails server -p $PORT"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: snappy-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: "2"

@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Snappy App: Readme</b></h3>
+  <h1><b>Snappy App: Readme</b></h1>
 </div>
 
 # 📗 Table of Contents
