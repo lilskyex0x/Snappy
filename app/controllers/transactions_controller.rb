@@ -3,7 +3,6 @@ class TransactionsController < ApplicationController
   before_action :set_category, only: %i[index new create]
 
   def index
-    @category = Category.find(params[:category_id])
     @transactions = @category.transaction_records.order(created_at: :desc)
     @total_amount = @transactions.sum(:amount)
   end
@@ -15,13 +14,12 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params.except(:category_id))
-    @transaction.author = current_user # or however you get the current user
+    @transaction.author = current_user
 
     if @transaction.save
       CategoriesTransaction.create(transaction_ref_id: @transaction.id, category_id: params[:category_id])
       redirect_to category_transactions_path(params[:category_id])
     else
-      puts @transaction.errors.full_messages
       @categories = Category.all
       render :new
     end
