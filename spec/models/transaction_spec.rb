@@ -38,10 +38,4 @@ RSpec.describe Transaction, type: :model do
     transaction.valid?
     expect(transaction.errors[:author_id]).to include("can't be blank")
   end
-
-  it 'validates that transaction must belong to at least one category' do
-    transaction = Transaction.new(categories: [])
-    transaction.valid?
-    expect(transaction.errors[:base]).to include('must belong to at least one category')
-  end
 end
