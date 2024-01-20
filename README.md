@@ -149,7 +149,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Microverse materials and Ruby tutorial at <a href="https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm">
+The design used for this webapp was created by [Gregoire Vella](https://www.behance.net/gregoirevella) and is based on his [Snapscan](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) design I would like to thank [Microverse](https://github.com/microverseinc) for the immense support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,6 +157,6 @@ Microverse materials and Ruby tutorial at <a href="https://www.tutorialspoint.co
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
