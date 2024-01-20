@@ -4,15 +4,15 @@
   <div>
     <%= form_with(model: @category, url: categories_path, local: true, method: :post, html: { class: "new-category-form" }) do |f| %>  
       <div class="field">
-        <%= f.text_field :name, autocomplete: "off", placeholder:"Category Name", class: "shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= f.text_field :name, autocomplete: "off", placeholder:"Category Name" %>
       </div>
 
       <div class="field">
-        <%= f.text_field :icon, autocomplete: "off", placeholder:"Category Icon", class: "shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= f.text_field :icon, autocomplete: "off", placeholder:"Category Icon" %>
       </div>
 
       <div class="category-create">
-        <div class="p-2 border border-white">
+        <div>
           <%= f.submit "Create Category", class: "button" %>
         <div>
       </div>
