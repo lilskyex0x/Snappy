@@ -3,9 +3,5 @@
 set -o errexit
 
 bundle install
-
-chmod +x ./bin/rails
-
-bundle install
 ./bin/rails assets:precompile
 ./bin/rails assets:clean
