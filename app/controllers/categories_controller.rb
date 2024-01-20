@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:transaction_records).find(params[:id])
   end
 
   def create
