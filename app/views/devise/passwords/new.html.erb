@@ -1,0 +1,16 @@
+<%= render partial: "shared/navbar", locals: { title: "Forgot your password?", logout: false, back_path: new_user_session_path, show_next: false } %>
+
+<section class="app-body">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", class: "btn-actions" %>
+    </div>
+  <% end %>
+
+</section>

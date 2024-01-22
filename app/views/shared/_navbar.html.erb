@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <% if logout %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"navbar-button" %>
+      <% else %>
+        <%= link_to back_path do %>
+          <%= image_tag("https://www.pinclipart.com/picdir/big/544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png", alt: "Back", class:"navbar-image") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="navbar-center"> 
+      <h2 class="navbar-title"><%= title %></h2>
+    </div>
+
+    <div class="navbar-right">
+      <% if show_next %>
+        <button id="next-button" class="navbar-button">Next</button>
+      <% else %>
+        <img src="https://www.pngall.com/wp-content/uploads/13/Search-Button-White-PNG.png" alt="search" class="navbar-search">
+      <% end %>
+    </div>
+  </div>
+</nav>

@@ -1,15 +1,380 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #3778c2, #123150);
+  justify-content: center;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.notice,
+.alert {
+  margin-top: 20px;
+  color: #80f42d;
+}
+
+.app-body {
+  position: relative;
+  width: 40%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: gainsboro;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Navbar CSS Starts here___________________________ */
+
+.navbar {
+  width: 40%;
+  background: linear-gradient(to bottom left, #3778c2, #1231509f);
+  padding: 1rem;
+  position: relative;
+}
+
+.navbar-container {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+}
+
+.navbar-button {
+  color: #fff;
+  background-color: #4299e1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navbar-button:hover {
+  background-color: #2b6cb0;
+}
+
+.navbar-image {
+  max-height: 2.5rem;
+  filter: invert(1);
+  width: 30px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+.navbar-center {
+  color: #fff;
+  font-size: 1.125rem;
+}
+
+.navbar-search {
+  margin-left: 50px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Navbar CSS Ends here___________________________ */
+
+.field {
+  border-bottom: 1px solid beige;
+  padding: 10px 0;
+}
+
+.field input {
+  font-size: 1rem;
+  color: #123150;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.field input::placeholder {
+  color: #12315054;
+}
+
+/* Splash Screen CSS Starts here____________________ */
+
+.Splash-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem;
+  margin-bottom: 6rem;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+.title {
+  font-family: 'Salsa', cursive;
+  font-size: 5rem;
+  color: white;
+  text-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.description {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 0 0 5px #51cbee;
+}
+
+.user-info,
+.get-started {
+  font-size: 0.8rem;
+  color: white;
+  border: 2px solid #5198ee;
+  border-width: 2px 0;
+  padding: 10px 5px 10px 5px;
+}
+
+.user-link {
+  color: #5fb523;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.user-link:hover {
+  color: #80f42d;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sign-out-button,
+.sign-in-button {
+  font-size: 1rem;
+  display: inline-block;
+  padding: 10px 80px;
+  color: #fff;
+  background-color: #3778c2;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+}
+
+.sign-out-button:hover,
+.sign-in-button:hover {
+  background-color: #5198ee;
+}
+
+.sign-up-button {
+  color: #5fb523;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.sign-up-button:hover {
+  color: #80f42d;
+}
+
+.btn-actions {
+  appearance: none;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 10px 80px;
+  color: #fff;
+  background-color: #3778c2;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  line-height: 1.5;
+  outline: none;
+}
+
+.btn-actions:hover {
+  background-color: #5198ee;
+}
+
+/* Splash Screen CSS Ends here____________________ */
+
+/* Categories CSS Starts here____________________ */
+
+#categories {
+  width: 100%;
+}
+
+#categories table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#categories th,
+#categories td {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 8px;
+}
+
+tr {
+  transition: 0.3s ease-in-out;
+}
+
+.full-width-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  padding: 15px 0 15px 0;
+}
+
+.titleTr {
+  background-color: #5fb523;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.new-category-link,
+.new-transaction-link {
+  width: 90%;
+  display: inline-block;
+  padding: 20px 20px;
+  color: white;
+  background-color: #5fb523;
+  border: none;
+  border-radius: 4px;
+  margin-top: 50px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.new-category-link:hover,
+.new-transaction-link:hover {
+  background-color: #55a01f;
+}
+
+.new-category,
+.new-transaction {
+  padding: 10px;
+  border: 1px solid #fff;
+}
+
+/* Categories CSS Ends here____________________ */
+
+/* New Categories CSS Starts Here_______________________ */
+
+.new-category-form,
+.new-transaction-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  background-color: #5fb523;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #55a01f;
+  color: white;
+}
+
+/* New Categories CSS Ends Here_______________________ */
+
+/* Transaction Page CSS Starts here____________________ */
+
+.total-trasaction-amount {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 18px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.priceTotal {
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#transactions {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f5f5f5;
+}
+
+.transactions {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 3px solid #ddd;
+}
+
+.transactions-img {
+  width: 100px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.tranName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.amount {
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Transaction Page CSS Ends here____________________ */

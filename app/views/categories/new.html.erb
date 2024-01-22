@@ -1,0 +1,21 @@
+<%= render partial: "shared/navbar", locals: { title: "New Category", logout: false, back_path: categories_path, show_next: false } %>
+
+<section class="app-body">
+  <div>
+    <%= form_with(model: @category, url: categories_path, local: true, method: :post, html: { class: "new-category-form" }) do |f| %>  
+      <div class="field">
+        <%= f.text_field :name, autocomplete: "off", placeholder:"Category Name" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :icon, autocomplete: "off", placeholder:"Category Icon" %>
+      </div>
+
+      <div class="category-create">
+        <div>
+          <%= f.submit "Create Category", class: "button" %>
+        <div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<%= render partial: "shared/navbar", locals: { title: "Transactions", logout: false, back_path: categories_path, show_next: false } %>
+
+<section class="app-body">
+  <div class="total-trasaction-amount">
+    <p><%= @category.name %> total transactions amount</p>
+    <p class="priceTotal"><%= "#{@category.total_transaction_amount} $" %></p>
+  </div>
+  <div id="transactions">
+    <% @transactions.each do |transaction| %>
+      <div class="transactions">
+        <div class="transactions-img">
+          <img src=<%=@category.icon%> class="w-full h-24 object-cover border-2 rounded border-black">
+        </div>
+        <div class="details">
+          <p class="tranName"><%= transaction.name %></p>
+          <p><%= transaction.created_at.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="amount">
+          <p><%= transaction.amount %>$</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to new_category_transaction_path(@category), class:"new-transaction-link" do%>
+    <div class="new-transaction">
+      New Transaction
+    </div>
+  <% end %>
+</section>
